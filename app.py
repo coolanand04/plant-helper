@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request, Markup
-from model import predict_image
+#from model import predict_image
 import utils
 
 app = Flask(__name__)
@@ -29,4 +29,4 @@ def manifest():
     return("manifest.json", 200, {'Content-Type': 'application/json'})
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0",debug=True)
