@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, Markup
+from flask import Flask, render_template, jsonify, request, Markup, make_response, send_from_directory
 from model import predict_image
 import utils
 
@@ -30,7 +30,18 @@ def manifest():
 
 @app.route("/sw.js", methods=['GET'])
 def sw():
-    return("sw.js", 200, {'Content-Type': 'application/javascript'})
+    response=make_response(
+                     send_from_directory('sw.js',path='sw.js', as_attachment=True))
+    #change the content header file. Can also omit; flask will handle correctly.
+    response.headers['Content-Type'] = 'application/javascript'
+
+@app.route("/favicon.ico", methods=['GET'])
+def favico():
+    return("./static/icons/favicon-310x310.ico", 200, {'Content-Type': 'image/x-icon'})
+
+@app.route("/apple-touch-icon.png", methods=['GET'])
+def appleico():
+    return("./static/icons/icon-512x512.png", 200, {'Content-Type': 'image/png'})
 
 if __name__ == "__main__":
     app.run(debug=True)

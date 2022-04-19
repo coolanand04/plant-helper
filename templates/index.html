@@ -22,6 +22,19 @@
   <link href="../static/styles/style.css" rel='stylesheet' type='text/css' media="all">
   <!--//stylesheets-->
 
+  <!--Adding the Manifest file-->
+  <link rel="manifest" href="/static/manifest.json">
+
+
+  <!--Adding the Favicon-->
+  <link rel="icon" href="/static/icons/favicon-310x310.png">
+
+  <!--Adding the Apple Touch Icon-->
+  <link rel="apple-touch-icon" href="/static/icons/favicon-310x310.png">
+
+  <!--Adding the Apple Touch Icon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/favicon-180x180.png">
+
 </head>
 
 <body>
@@ -192,7 +205,7 @@
   </script>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
+      navigator.serviceWorker.register("/sw.js", {scope:"/"})
       .then(function(registration) {
         console.log('Registration successful, scope is:', registration.scope);
       })

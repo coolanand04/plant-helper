@@ -1,38 +1,39 @@
 {
     "short_name" : "Plant Helper",
-    "Name" : "Plant Helper",
+    "name" : "Plant Helper: An Image based plant disease detection tool.",
     "start_url" : "/",
-    "background_color" : "#ffffff",
-    "theme_color" : "#ffffff",
+    "background_color" : "#000000",
+    "theme_color" : "#000000",
     "display" : "fullscreen",
+    "orientation" : "portrait",
     "icons" :[
         {
-            "src" : "static/icons/icon-72x72.png",
+            "src" : "./icons/72x72.png",
             "sizes" : "72x72",
             "type" : "image/png"
         },
         {
-            "src" : "static/icons/icon-96x96.png",
+            "src" : "./icons/96x96.png",
             "sizes" : "96x96",
             "type" : "image/png"
         },
         {
-            "src" : "static/icons/icon-128x128.png",
+            "src" : "./icons/128x128.png",
             "sizes" : "128x128",
             "type" : "image/png"
         },
         {
-            "src" : "static/icons/icon-144x144.png",
+            "src" : "./icons/144x144.png",
             "sizes" : "144x144",
             "type" : "image/png"
         },
         {
-            "src" : "static/icons/icon-152x152.png",
+            "src" : "./icons/favicon-152x152.png",
             "sizes" : "152x152",
             "type" : "image/png"
         },
         {
-            "src" : "static/icons/icon-192x192.png",
+            "src" : "./icons/192x192.png",
             "sizes" : "192x192",
             "type" : "image/png"
         }
