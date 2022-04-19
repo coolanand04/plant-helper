@@ -28,5 +28,9 @@ def predict():
 def manifest():
     return("manifest.json", 200, {'Content-Type': 'application/json'})
 
+@app.route("/sw.js", methods=['GET'])
+def sw():
+    return("sw.js", 200, {'Content-Type': 'application/javascript'})
+
 if __name__ == "__main__":
     app.run(debug=True)
