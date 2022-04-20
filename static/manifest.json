@@ -1,6 +1,6 @@
 {
     "short_name" : "Plant Helper",
-    "name" : "Plant Helper: An Image based plant disease detection tool.",
+    "name" : "Plant Helper: A plant disease detection tool.",
     "start_url" : "/",
     "background_color" : "#000000",
     "theme_color" : "#000000",
