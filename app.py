@@ -34,6 +34,9 @@ def sw():
     response.headers['Cache-Control'] = 'no-cache'
     return response
 
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'),404
 
 @app.route("/favicon.ico", methods=['GET'])
 def favico():
