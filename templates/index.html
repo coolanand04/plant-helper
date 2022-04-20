@@ -6,6 +6,7 @@
   <!--meta tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
   <!--//meta tags ends here-->
   <!--booststrap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -174,6 +175,7 @@
           Designed by VIT Bhopal Students
         </p>
       </div>
+      <button id="btnAdd">Install App</button>
       <!-- move icon -->
       <div class="text-center">
         <a href="#home" class="move-top text-center mt-3"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
@@ -203,6 +205,7 @@
       reader.readAsDataURL(event.target.files[0]);
     }
   </script>
+
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register("/sw.js", {scope:"/"})
@@ -213,6 +216,33 @@
         console.log('Service worker registration failed, error:', error);
       });
     }
+    let deferredPrompt;
+    const btnAdd = document.querySelector('#btnAdd');
+      
+    window.addEventListener('beforeinstallprompt', (e) => {
+      console.log('beforeinstallprompt event fired');
+      e.preventDefault();
+      deferredPrompt = e;
+      btnAdd.style.visibility = 'visible';
+    });
+    
+    btnAdd.addEventListener('click', (e) => {
+      btnAdd.style.visibility = 'hidden';
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice
+        .then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('User accepted the A2HS prompt');
+          } else {
+            console.log('User dismissed the A2HS prompt');
+          }
+          deferredPrompt = null;
+        });
+    });
+    
+    window.addEventListener('appinstalled', (evt) => {
+      app.logEvent('app', 'installed');
+    });
   </script>
 </body>
 

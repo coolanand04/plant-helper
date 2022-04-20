@@ -30,10 +30,10 @@ def manifest():
 
 @app.route("/sw.js", methods=['GET'])
 def sw():
-    response=make_response(
-                     send_from_directory('sw.js',path='sw.js', as_attachment=True))
-    #change the content header file. Can also omit; flask will handle correctly.
-    response.headers['Content-Type'] = 'application/javascript'
+    response = make_response(send_from_directory('static', 'sw.js'))
+    response.headers['Cache-Control'] = 'no-cache'
+    return response
+
 
 @app.route("/favicon.ico", methods=['GET'])
 def favico():
